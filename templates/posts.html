@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <h1>멋사 8기 장휘정 게시판</h1>
+    <br>
+    <button type='button' onclick='location.href="{% url "create" %}"'>Create</button>
+    <br>
+    <br>
+    <article>
+        {% for obj in posts.all %}
+        <h2>Title: {{ obj.title }}</h1>
+        <p>{{ obj.body}}</p>
+        <p id='date'>Date: {{ obj.date }}</p>
+        <a href="{% url 'detail' obj.pk %}">More</a>
+        {% endfor %}
+    </article>
+{% endblock content %}
